@@ -40,10 +40,21 @@ class FilesPathManger {
         }
     }
     generatedObject() {
+        const getPath = (articlePath: string, key: string) => {
+            const pathElements = articlePath.split(path.sep);
+            const indexFromSlice = pathElements.indexOf(key) + 1;
+            const newPath = pathElements.slice(indexFromSlice).join(path.sep)
+            return newPath;
+        }
+        const removeExtension = (newPath: string) => {
+            return newPath.endsWith(".md") ? newPath.slice(0, -3) : newPath;
+        }
         const newObject: { [key: string]: any } = {};
         const keys = this.getKeys()
         for (const key of keys) {
-            newObject[key] = this.getByKey(key);
+            const data = this.getByKey(key);
+            const dataFormat = data?.map(articlePath => { return { path: removeExtension(getPath(articlePath, key)), "menuText": "" } })
+            newObject[key] = dataFormat;
         }
         return newObject;
     }
