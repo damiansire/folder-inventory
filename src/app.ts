@@ -39,6 +39,29 @@ class FilesPathManger {
             }
         }
     }
+    generatedObject() {
+        const newObject: { [key: string]: any } = {};
+        const keys = this.getKeys()
+        for (const key of keys) {
+            newObject[key] = this.getByKey(key);
+        }
+        return newObject;
+    }
+    saveFile() {
+
+        const contenido = this.generatedObject();
+
+        const contenidoString = JSON.stringify(contenido)
+
+        // Escribe la cadena de texto en un archivo
+        fs.writeFile('dist/datos.json', contenidoString, (error) => {
+            if (error) {
+                console.error('Error al escribir el archivo:', error);
+            } else {
+                console.log('Los datos se han guardado en datos.json');
+            }
+        });
+    }
 }
 
 function readFilesRecursively(directoryPath: string) {
@@ -71,3 +94,4 @@ const directorio = './src/test/notas';
 
 const result = readFilesRecursively(directorio);
 console.log(result)
+result.saveFile();

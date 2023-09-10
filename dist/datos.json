@@ -1,0 +1,17 @@
+{
+  "angular": [
+    "src\\test\\notas\\angular\\cli.md",
+    "src\\test\\notas\\angular\\eslint.md"
+  ],
+  "arquitectura": ["src\\test\\notas\\arquitectura\\angular.md"],
+  "general": [
+    "src\\test\\notas\\general\\git.md",
+    "src\\test\\notas\\general\\google-slide.md",
+    "src\\test\\notas\\general\\husky.md",
+    "src\\test\\notas\\general\\nx-workspace.md",
+    "src\\test\\notas\\general\\patrones.md",
+    "src\\test\\notas\\general\\vim.md",
+    "src\\test\\notas\\general\\vscode.md",
+    "src\\test\\notas\\general\\wsl.md"
+  ]
+}
